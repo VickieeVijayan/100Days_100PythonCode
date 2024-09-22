@@ -5,6 +5,4 @@ people = int(input("How many people to split the bill? "))
 
 split = ((bill + ((tip / 100) * bill)) / people)
 
-print(split)
-
 print(f"Each share would be ${ round(split, 2)}")
