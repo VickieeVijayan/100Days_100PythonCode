@@ -1,6 +1,6 @@
 import random
-import hangman_words
-from hangman_art import logo, stages
+from D7hangman_words import word_list
+from D7hangman_art import logo, stages
 
 lives = 6
 
@@ -8,7 +8,7 @@ lives = 6
 print(logo)
 
 # Choosing random word from hangman_words.py program
-chosen_word = random.choice(hangman_words.word_list)
+chosen_word = random.choice(word_list)
 # print(chosen_word)
 
 placeholder = ""
