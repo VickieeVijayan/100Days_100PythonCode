@@ -1,5 +1,5 @@
 # TODO-1: Import and print the logo from art.py when the program starts.
-from D8art import logo
+from art import logo
 
 print(logo)
 

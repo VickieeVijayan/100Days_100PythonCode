@@ -1,6 +1,6 @@
 import random
-from D7hangman_words import word_list
-from D7hangman_art import logo, stages
+from hangman_words import word_list
+from hangman_art import logo, stages
 
 lives = 6
 
