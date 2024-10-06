@@ -2,43 +2,48 @@ import random
 from art import logo
 
 def random_num():
-    return random.uniform(1, 100)
+    return random.randint(1, 100)
 
-def compare(g_num):
-    if g_num > num:
-        return "Too High"
-    elif g_num < num:
-        return "Too Low"
+def compare(g_num, a_num, left):
+    if g_num > a_num:
+        print("Too High.")
+        return left - 1
+    elif g_num < a_num:
+        print("Too Low.")
+        return left - 1
+    elif g_num == a_num:
+        print(f"You got it!! The answer was {g_num}")
+        return 0
 
-def game(choice):
-    for attempt in range(1, choice):
-        guess = int(input("Make a guess:   "))
-        if guess == num:
-            print(f"You got it!! The answer was {num}")
-            exit()
-        elif guess != num:
-            print(compare(guess))
-            print("Guess again.")
-            print(f"You have {10 - attempt} attempts remaining to guess the number")
+def game(level):
+    while level != 0:
+            print(f"You have {level} attempts remaining to guess the number ")
+            guess = int(input("      Make a guess:   "))
+            level = compare(guess, num, level)
+            if level == 0 and guess != num:
+                print(f"It was {num} ^x^ ")
+            elif level > 0:
+                print("Try again.")
+
 
 
 def play():
     print(logo)
     print("Welcome to the Number Guessing Game!!")
     print("Im thinking of a number between 1 and 100.")
-    print(num)
+    #print(num)
     u_choice = input("Choose a difficulty. Type 'easy' or 'hard':   ").lower()
     if u_choice == "easy":
-        attempts = 10
-        game(attempts)
+        game(EASY_LEVEL)
     elif u_choice == "hard":
-        attempts = 5
-        game(attempts)
+        game(HARD_LEVEL)
 
-num = int(random_num())
+HARD_LEVEL = 5
+EASY_LEVEL = 10
 is_game_over = False
 
 while not is_game_over:
+    num = random_num()
     play()
-    if input("You want to retry? Type 'Y' or 'N':   ").lower() == "n":
+    if input("You restart a new game? Type 'Y' or 'N':   ").lower() == "n":
         is_game_over = True
