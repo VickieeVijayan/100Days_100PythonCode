@@ -28,6 +28,7 @@ while not game_over:
     against_b = pick()
     print(f"Against B: {against_b["name"]}, {against_b["description"]}, {against_b["country"]}")
     choice = input("Who has more followers? Type 'A' or 'B':     ").lower()
+    print("\n" * 20)
     print(logo)
     turn = compare(choice)
     if turn == 0:
